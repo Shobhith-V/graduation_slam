@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shobhith's Graduation Slam Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #fdf6ec; --warm-white: #fffaf4; --parchment: #f5ead6;
+    --amber-light: #e8c98a; --amber: #c9954a; --amber-dark: #8b5e2a;
+    --rose: #c97a6e; --rose-light: #f2e0db;
+    --text-dark: #3a2a1a; --text-mid: #6b4f35; --text-soft: #9b7a5a;
+    --border: rgba(139,94,42,0.18); --shadow: rgba(100,60,20,0.10);
+    --green: #4a7c59; --green-light: #e8f5ee;
+  }
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(ellipse at 15% 20%, rgba(232,201,138,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 75%, rgba(201,122,110,0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(245,234,214,0.3) 0%, transparent 60%);
+    min-height: 100vh; color: var(--text-dark);
+  }
+  .page-wrap { max-width: 660px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+
+  /* ── Header ── */
+  .header { text-align: center; margin-bottom: 3rem; animation: fadeUp 0.8s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+
+  .badge {
+    display: inline-block; font-style: italic; font-size: 0.82rem;
+    color: var(--amber); letter-spacing: 0.14em;
+    border: 1px solid var(--amber-light); padding: 0.3rem 1rem;
+    border-radius: 100px; margin-bottom: 1.6rem;
+    background: rgba(232,201,138,0.13);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 8vw, 3.8rem);
+    font-weight: 600; line-height: 1.12; color: var(--text-dark); margin-bottom: 0.5rem;
+  }
+  h1 em { color: var(--amber-dark); font-style: italic; }
+  .ornament {
+    display: flex; align-items: center; gap: 0.8rem;
+    max-width: 280px; margin: 1.3rem auto;
+  }
+  .ornament::before, .ornament::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, transparent, var(--amber-light), transparent);
+  }
+  .ornament span { color: var(--amber); font-size: 1rem; letter-spacing: 0.2em; }
+  .header-sub { font-size: 1.02rem; color: var(--text-mid); line-height: 1.75; font-style: italic; max-width: 460px; margin: 0 auto; }
+
+  /* ── Lock pill ── */
+  .lock-pill {
+    display: flex; align-items: center; gap: 0.9rem;
+    background: linear-gradient(120deg, rgba(232,201,138,0.22), rgba(245,234,214,0.38));
+    border: 1px solid var(--amber-light); border-radius: 14px;
+    padding: 1rem 1.4rem; margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .lock-pill .icon { font-size: 1.5rem; flex-shrink: 0; }
+  .lock-pill p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+  .lock-pill strong { color: var(--amber-dark); font-weight: 500; }
+
+  /* ── Form card ── */
+  .card {
+    background: var(--warm-white); border: 1px solid var(--border);
+    border-radius: 24px; padding: 2.6rem 2.2rem;
+    box-shadow: 0 6px 48px var(--shadow), 0 1px 0 rgba(255,255,255,0.9) inset;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.8s 0.25s ease both;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--amber-light), var(--rose), var(--amber), var(--rose));
+    border-radius: 24px 24px 0 0;
+  }
+
+  .sec-label {
+    font-style: italic; font-size: 0.78rem; letter-spacing: 0.11em;
+    color: var(--text-soft); text-transform: uppercase;
+    margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 500px) { .row2 { grid-template-columns: 1fr; } }
+
+  .fgroup { margin-bottom: 1.4rem; }
+  label {
+    display: block; font-size: 0.86rem; font-weight: 500;
+    color: var(--text-mid); margin-bottom: 0.45rem;
+  }
+  label .hint { font-weight: 400; font-style: italic; color: var(--text-soft); font-size: 0.8rem; }
+
+  input[type="text"], input[type="email"], textarea {
+    width: 100%; padding: 0.72rem 1rem; border: 1px solid var(--border);
+    border-radius: 10px; background: var(--cream); font-family: 'Lora', serif;
+    font-size: 0.94rem; color: var(--text-dark); outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
+  }
+  input:focus, textarea:focus {
+    border-color: var(--amber); box-shadow: 0 0 0 3px rgba(201,149,74,0.13);
+  }
+  textarea { min-height: 155px; resize: vertical; line-height: 1.75; }
+
+  /* ── Prompts ── */
+  .prompts { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px,1fr)); gap: 0.5rem; margin-bottom: 1.1rem; }
+  .chip {
+    background: var(--parchment); border: 1px solid var(--border); border-radius: 9px;
+    padding: 0.5rem 0.75rem; font-size: 0.8rem; color: var(--text-mid);
+    cursor: pointer; font-style: italic; line-height: 1.4;
+    font-family: 'Lora', serif; transition: all 0.14s; user-select: none;
+  }
+  .chip:hover { background: var(--amber-light); border-color: var(--amber); color: var(--amber-dark); transform: translateY(-1px); }
+
+  /* ── Upload area ── */
+  .upload-area {
+    border: 2px dashed var(--amber-light); border-radius: 14px;
+    background: rgba(232,201,138,0.07); padding: 2rem 1rem;
+    text-align: center; cursor: pointer; position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .upload-area.dragover { border-color: var(--amber); background: rgba(232,201,138,0.18); }
+  .upload-area input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .upload-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+  .upload-area .up-title { font-size: 0.92rem; color: var(--text-mid); font-weight: 500; margin-bottom: 0.25rem; }
+  .upload-area .up-sub { font-size: 0.78rem; color: var(--text-soft); font-style: italic; }
+
+  /* ── File previews ── */
+  .file-previews { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+  .preview-item {
+    position: relative; border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border); background: var(--parchment);
+    width: 80px; height: 80px; flex-shrink: 0;
+  }
+  .preview-item img, .preview-item video {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .preview-item .file-label {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 0.65rem; color: var(--text-soft); text-align: center;
+    padding: 4px; word-break: break-all; line-height: 1.3;
+  }
+  .preview-item .file-label span { font-size: 1.4rem; margin-bottom: 2px; }
+  .preview-item .remove-btn {
+    position: absolute; top: 3px; right: 3px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(58,42,26,0.7); color: #fff;
+    font-size: 10px; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1; font-weight: bold;
+  }
+  .upload-size-note { font-size: 0.76rem; color: var(--text-soft); font-style: italic; margin-top: 0.5rem; }
+
+  /* ── Progress bar ── */
+  .progress-wrap { display: none; margin-top: 1rem; }
+  .progress-bar-bg {
+    background: var(--parchment); border-radius: 100px;
+    height: 8px; overflow: hidden; border: 1px solid var(--border);
+  }
+  .progress-bar-fill {
+    height: 100%; width: 0%; border-radius: 100px;
+    background: linear-gradient(90deg, var(--amber-light), var(--amber));
+    transition: width 0.3s ease;
+  }
+  .progress-label { font-size: 0.8rem; color: var(--text-soft); font-style: italic; margin-top: 0.4rem; text-align: center; }
+
+  /* ── Submit ── */
+  .submit-btn {
+    width: 100%; padding: 1.05rem;
+    background: linear-gradient(135deg, var(--amber-dark), var(--amber));
+    color: #fff9f0; border: none; border-radius: 12px;
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    font-style: italic; cursor: pointer; letter-spacing: 0.03em;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    margin-top: 1.2rem;
+    box-shadow: 0 4px 18px rgba(139,94,42,0.22);
+  }
+  .submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(139,94,42,0.28); }
+  .submit-btn:active:not(:disabled) { transform: translateY(0); }
+  .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  .error-msg {
+    display: none; background: #fff0f0; border: 1px solid #f5c0c0;
+    border-radius: 9px; padding: 0.8rem 1rem; font-size: 0.84rem;
+    color: #a03030; margin-top: 0.8rem; line-height: 1.5;
+  }
+
+  /* ── Success ── */
+  .success-view { display: none; text-align: center; padding: 3.5rem 1rem; }
+  .success-view .s-icon { font-size: 4rem; margin-bottom: 1.1rem; }
+  .success-view h2 {
+    font-family: 'Playfair Display', serif; font-size: 2rem;
+    font-style: italic; color: var(--amber-dark); margin-bottom: 0.7rem;
+  }
+  .success-view p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; font-style: italic; }
+  .success-view .envelope {
+    display: inline-block; margin-top: 1.5rem;
+    background: var(--parchment); border: 1px solid var(--amber-light);
+    border-radius: 12px; padding: 0.8rem 1.6rem;
+    font-size: 0.85rem; color: var(--text-mid); font-style: italic;
+  }
+
+  .footer { text-align: center; margin-top: 3rem; font-size: 0.76rem; color: var(--text-soft); font-style: italic; line-height: 1.8; }
+
+  @media (max-width: 480px) {
+    .page-wrap { padding: 2rem 1rem 5rem; }
+    .card { padding: 1.8rem 1.1rem; }
+    h1 { font-size: 2.3rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">Class of 2025 &nbsp;·&nbsp; A Keepsake for the Future</div>
+    <h1>Shobhith's<br><em>Graduation Slam Book</em></h1>
+    <div class="ornament"><span>✦ ✦ ✦</span></div>
+    <p class="header-sub">Leave a message, a memory, a wish — sealed away and delivered to Shobhith two years from now.</p>
+  </div>
+
+  <!-- Lock pill -->
+  <div class="lock-pill">
+    <div class="icon">🔒</div>
+    <p>Your message will be <strong>automatically delivered to Shobhith on <span id="unlockDate"></span></strong>. He genuinely cannot read it before then. Write from the heart.</p>
+  </div>
+
+  <!-- Form card -->
+  <div class="card" id="mainCard">
+
+    <div class="sec-label">Who are you</div>
+
+    <div class="row2">
+      <div class="fgroup">
+        <label for="senderName">Your name</label>
+        <input type="text" id="senderName" placeholder="e.g. Priya Sharma" autocomplete="name" />
+      </div>
+      <div class="fgroup">
+        <label for="senderEmail">Your email <span class="hint">(so he knows it's you)</span></label>
+        <input type="email" id="senderEmail" placeholder="you@example.com" autocomplete="email" />
+      </div>
+    </div>
+
+    <div class="sec-label" style="margin-top:1.4rem">Your message</div>
+
+    <div class="fgroup">
+      <label>Need a spark? Pick a prompt</label>
+      <div class="prompts">
+        <div class="chip" onclick="addPrompt('My favourite memory with Shobhith is...')">📸 A favourite memory</div>
+        <div class="chip" onclick="addPrompt('In 2 years, I predict Shobhith will...')">🔮 My prediction</div>
+        <div class="chip" onclick="addPrompt('The one thing I want Shobhith to remember is...')">💛 Remember this</div>
+        <div class="chip" onclick="addPrompt('My advice for the next chapter of your life...')">🌱 Advice for ahead</div>
+        <div class="chip" onclick="addPrompt('What I admire most about Shobhith is...')">⭐ What I admire</div>
+        <div class="chip" onclick="addPrompt('The moment I knew Shobhith was going places...')">✨ A proud moment</div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <label for="msgText">Your message <span class="hint">(opened in 2027)</span></label>
+      <textarea id="msgText" placeholder="Write whatever your heart wants Shobhith to read two years from now — a memory, a wish, a joke, a prediction..."></textarea>
+    </div>
+
+    <div class="sec-label" style="margin-top:1.4rem">Photos & videos <span style="font-style:normal;font-size:0.72rem;color:var(--text-soft);margin-left:0.3rem">(optional)</span></div>
+
+    <div class="fgroup">
+      <div class="upload-area" id="uploadArea"
+           ondragover="event.preventDefault();this.classList.add('dragover')"
+           ondragleave="this.classList.remove('dragover')"
+           ondrop="handleDrop(event)">
+        <input type="file" id="fileInput" multiple accept="image/*,video/*" onchange="handleFiles(this.files)" />
+        <div class="upload-icon">📎</div>
+        <p class="up-title">Click to attach or drag & drop</p>
+        <p class="up-sub">Photos and videos · up to 5 files · 10 MB each</p>
+      </div>
+      <div class="file-previews" id="filePreviews"></div>
+      <div class="upload-size-note" id="sizeNote"></div>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Uploading…</div>
+      </div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" onclick="submitForm()">Seal my message ✦</button>
+    <div class="error-msg" id="errorMsg"></div>
+
+    <!-- Success -->
+    <div class="success-view" id="successView">
+      <div class="s-icon">🕊️</div>
+      <h2>Sealed with love.</h2>
+      <p>Your message is safely locked away.<br>Shobhith will receive it on <strong id="successDate"></strong> —<br>thank you for being part of his story.</p>
+      <div class="envelope">📬 Delivering in 2027 ✦</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Made with love for Shobhith's graduation · 2025<br>
+    Every message unlocks automatically in 2027 ✦
+  </div>
+
+</div>
+<script>
+  // ── CONFIG — paste your deployed Apps Script URL here after setup ──
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw0KrZfTypIAa-53Kd05aZOHGYhRXQC5ZfMAZA8N925idJGVCKBA_L8iOhzSjCtFxOKJg/exec';
+
+  // Unlock date = 2 years from today
+  const today  = new Date();
+  const unlock = new Date(today);
+  unlock.setFullYear(unlock.getFullYear() + 2);
+  const fmt = d => d.toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+  document.getElementById('unlockDate').textContent = fmt(unlock);
+  document.getElementById('successDate').textContent = fmt(unlock);
+
+  // ── Prompts ──
+  function addPrompt(text) {
+    const ta = document.getElementById('msgText');
+    ta.value = ta.value.trim() ? ta.value.trim() + '\n\n' + text : text;
+    ta.focus();
+    ta.scrollTop = ta.scrollHeight;
+  }
+
+  // ── File handling ──
+  let files = [];
+  const MAX_FILES = 5;
+  const MAX_BYTES = 10 * 1024 * 1024;
+
+  function handleDrop(e) {
+    e.preventDefault();
+    document.getElementById('uploadArea').classList.remove('dragover');
+    handleFiles(e.dataTransfer.files);
+  }
+
+  function handleFiles(incoming) {
+    const toAdd = Array.from(incoming);
+    const remaining = MAX_FILES - files.length;
+    const oversized = toAdd.filter(f => f.size > MAX_BYTES);
+    if (oversized.length) {
+      showError(`"${oversized[0].name}" is over 10 MB. Please choose a smaller file.`);
+      return;
+    }
+    if (remaining <= 0) { showError('Maximum 5 files allowed.'); return; }
+    files = [...files, ...toAdd.slice(0, remaining)];
+    renderPreviews();
+  }
+
+  function removeFile(i) {
+    files.splice(i, 1);
+    renderPreviews();
+  }
+
+  function renderPreviews() {
+    const container = document.getElementById('filePreviews');
+    container.innerHTML = '';
+    files.forEach((f, i) => {
+      const div = document.createElement('div');
+      div.className = 'preview-item';
+      if (f.type.startsWith('image/')) {
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(f);
+        div.appendChild(img);
+      } else if (f.type.startsWith('video/')) {
+        const vid = document.createElement('video');
+        vid.src = URL.createObjectURL(f);
+        vid.muted = true;
+        div.appendChild(vid);
+      } else {
+        const lbl = document.createElement('div');
+        lbl.className = 'file-label';
+        lbl.innerHTML = `<span>📄</span>${f.name}`;
+        div.appendChild(lbl);
+      }
+      const rm = document.createElement('button');
+      rm.className = 'remove-btn';
+      rm.textContent = '✕';
+      rm.onclick = () => removeFile(i);
+      div.appendChild(rm);
+      container.appendChild(div);
+    });
+    const note = document.getElementById('sizeNote');
+    note.textContent = files.length ? `${files.length} file${files.length>1?'s':''} selected` : '';
+    document.getElementById('errorMsg').style.display = 'none';
+  }
+
+  // ── Convert file to base64 ──
+  function toBase64(file) {
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = () => res(r.result.split(',')[1]);
+      r.onerror = rej;
+      r.readAsDataURL(file);
+    });
+  }
+
+  // ── Submit ──
+  async function submitForm() {
+    hideError();
+    const name    = document.getElementById('senderName').value.trim();
+    const email   = document.getElementById('senderEmail').value.trim();
+    const message = document.getElementById('msgText').value.trim();
+
+    if (!name)    { showError('Please enter your name.'); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return; }
+    if (!message) { showError('Please write a message before sealing.'); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sealing your message…';
+
+    // Encode files
+    let encodedFiles = [];
+    if (files.length > 0) {
+      showProgress(0, 'Preparing your files…');
+      for (let i = 0; i < files.length; i++) {
+        showProgress(Math.round((i / files.length) * 70), `Uploading file ${i+1} of ${files.length}…`);
+        const b64 = await toBase64(files[i]);
+        encodedFiles.push({ name: files[i].name, type: files[i].type, data: b64 });
+      }
+      showProgress(85, 'Sealing your message…');
+    }
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name, email, message,
+          files: encodedFiles,
+          submitDate: today.toISOString(),
+          unlockDate: unlock.toISOString()
+        })
+      });
+      showProgress(100, 'Done!');
+      setTimeout(showSuccess, 600);
+    } catch(e) {
+      hideProgress();
+      btn.disabled = false;
+      btn.textContent = 'Seal my message ✦';
+      showError('Something went wrong. Please try again.');
+    }
+  }
+
+  function showProgress(pct, label) {
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = label;
+  }
+  function hideProgress() { document.getElementById('progressWrap').style.display = 'none'; }
+
+  function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg; el.style.display = 'block';
+  }
+  function hideError() { document.getElementById('errorMsg').style.display = 'none'; }
+
+  function showSuccess() {
+    const card = document.getElementById('mainCard');
+    Array.from(card.children).forEach(el => {
+      if (el.id !== 'successView') el.style.display = 'none';
+    });
+    document.getElementById('successView').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
