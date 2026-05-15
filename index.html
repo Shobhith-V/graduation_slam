@@ -3,334 +3,875 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shobhith's Graduation Slam Book</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<title>Dear Shobhith — a letter from 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --cream: #fdf6ec; --warm-white: #fffaf4; --parchment: #f5ead6;
-    --amber-light: #e8c98a; --amber: #c9954a; --amber-dark: #8b5e2a;
-    --rose: #c97a6e; --rose-light: #f2e0db;
-    --text-dark: #3a2a1a; --text-mid: #6b4f35; --text-soft: #9b7a5a;
-    --border: rgba(139,94,42,0.18); --shadow: rgba(100,60,20,0.10);
-    --green: #4a7c59; --green-light: #e8f5ee;
+    --paper:       #f4ebd5;
+    --paper-2:     #ebe0c4;
+    --paper-edge:  #d6c9ad;
+    --paper-line:  rgba(42, 77, 122, 0.18);
+    --ink:         #1c1813;
+    --ink-soft:    #3a342a;
+    --ink-mid:     #5c5040;
+    --pencil:      #8a7c66;
+    --pencil-soft: #b5a98f;
+    --red:         #b73a2c;
+    --red-dark:    #8d2a1f;
+    --wax:         #a8602a;
+    --wax-light:   #d99656;
+    --wax-dark:    #6f3f15;
+    --blue:        #2a4d7a;
+    --border:      rgba(28, 24, 19, 0.18);
   }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'Lora', Georgia, serif;
-    background-color: var(--cream);
+    background: var(--paper);
     background-image:
-      radial-gradient(ellipse at 15% 20%, rgba(232,201,138,0.25) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 75%, rgba(201,122,110,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 100%, rgba(245,234,214,0.3) 0%, transparent 60%);
-    min-height: 100vh; color: var(--text-dark);
+      radial-gradient(ellipse at 15% 10%, rgba(216, 165, 95, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 90%, rgba(183, 58, 44, 0.08) 0%, transparent 55%);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.5;
   }
-  .page-wrap { max-width: 660px; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
 
-  /* ── Header ── */
-  .header { text-align: center; margin-bottom: 3rem; animation: fadeUp 0.8s ease both; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+  /* ── PAGE WRAP ── */
+  .wrap {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 2.2rem 1.1rem 5rem;
+  }
 
-  .badge {
-    display: inline-block; font-style: italic; font-size: 0.82rem;
-    color: var(--amber); letter-spacing: 0.14em;
-    border: 1px solid var(--amber-light); padding: 0.3rem 1rem;
-    border-radius: 100px; margin-bottom: 1.6rem;
-    background: rgba(232,201,138,0.13);
+  /* ── COVER / HEADER ── */
+  .cover {
+    position: relative;
+    background: var(--paper-2);
+    border: 1.5px solid var(--ink);
+    padding: 2.4rem 1.6rem 2rem;
+    margin-bottom: 1.4rem;
+    box-shadow: 5px 5px 0 var(--ink);
+    animation: fadeUp 0.8s ease both;
   }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 8vw, 3.8rem);
-    font-weight: 600; line-height: 1.12; color: var(--text-dark); margin-bottom: 0.5rem;
+  .cover::before {
+    /* aged corner darkening */
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(111, 63, 21, 0.18), transparent 35%),
+      radial-gradient(ellipse at 100% 100%, rgba(111, 63, 21, 0.18), transparent 35%);
   }
-  h1 em { color: var(--amber-dark); font-style: italic; }
+  .postmark {
+    position: absolute; top: 14px; left: 14px;
+    width: 76px; height: 76px;
+    border: 2px solid var(--red);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 0.62rem;
+    color: var(--red);
+    letter-spacing: 0.1em;
+    line-height: 1.15;
+    text-align: center;
+    transform: rotate(-13deg);
+    opacity: 0.88;
+  }
+  .postmark::before {
+    content: ''; position: absolute; inset: 5px;
+    border: 1.5px dashed var(--red);
+    border-radius: 50%;
+  }
+  .postmark .lg { font-size: 0.85rem; font-weight: bold; letter-spacing: 0.05em; }
+  .postmark .sm { font-size: 0.55rem; opacity: 0.85; }
+
+  .stamp {
+    position: absolute; top: 14px; right: 14px;
+    width: 64px; height: 78px;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 5px;
+    transform: rotate(4deg);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between;
+    font-family: 'Special Elite', monospace;
+    text-align: center;
+    /* perforated edge */
+    box-shadow:
+      0 0 0 3px var(--paper-2),
+      0 0 0 4.5px var(--ink),
+      4px 4px 0 var(--ink);
+  }
+  .stamp .top {
+    font-size: 0.5rem; letter-spacing: 0.1em; color: var(--ink-mid);
+    border-bottom: 1px solid var(--border); padding-bottom: 2px; width: 100%;
+  }
+  .stamp .mid {
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 1.25rem; color: var(--red-dark); line-height: 1;
+  }
+  .stamp .yr {
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 1.6rem; color: var(--ink); line-height: 0.85;
+  }
+  .stamp .bot {
+    font-size: 0.48rem; letter-spacing: 0.1em; color: var(--ink-mid);
+  }
+
+  .cover-greeting {
+    font-family: 'Special Elite', monospace; font-size: 0.7rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mid); text-align: center;
+    margin-top: 1.2rem; margin-bottom: 0.4rem;
+  }
+  h1.cover-h {
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+    line-height: 1; color: var(--ink);
+    text-align: center;
+    margin-bottom: 0.6rem;
+  }
+  h1.cover-h em {
+    font-style: italic; color: var(--red-dark);
+  }
   .ornament {
-    display: flex; align-items: center; gap: 0.8rem;
-    max-width: 280px; margin: 1.3rem auto;
+    display: flex; align-items: center; gap: 0.6rem;
+    max-width: 220px; margin: 0.4rem auto 1rem;
   }
   .ornament::before, .ornament::after {
     content: ''; flex: 1; height: 1px;
-    background: linear-gradient(to right, transparent, var(--amber-light), transparent);
+    background: linear-gradient(to right, transparent, var(--ink), transparent);
+    opacity: 0.4;
   }
-  .ornament span { color: var(--amber); font-size: 1rem; letter-spacing: 0.2em; }
-  .header-sub { font-size: 1.02rem; color: var(--text-mid); line-height: 1.75; font-style: italic; max-width: 460px; margin: 0 auto; }
+  .ornament span { color: var(--red); font-size: 0.9rem; letter-spacing: 0.3em; }
 
-  /* ── Lock pill ── */
-  .lock-pill {
-    display: flex; align-items: center; gap: 0.9rem;
-    background: linear-gradient(120deg, rgba(232,201,138,0.22), rgba(245,234,214,0.38));
-    border: 1px solid var(--amber-light); border-radius: 14px;
-    padding: 1rem 1.4rem; margin-bottom: 2.5rem;
-    animation: fadeUp 0.8s 0.15s ease both;
-  }
-  .lock-pill .icon { font-size: 1.5rem; flex-shrink: 0; }
-  .lock-pill p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
-  .lock-pill strong { color: var(--amber-dark); font-weight: 500; }
-
-  /* ── Form card ── */
-  .card {
-    background: var(--warm-white); border: 1px solid var(--border);
-    border-radius: 24px; padding: 2.6rem 2.2rem;
-    box-shadow: 0 6px 48px var(--shadow), 0 1px 0 rgba(255,255,255,0.9) inset;
-    position: relative; overflow: hidden;
-    animation: fadeUp 0.8s 0.25s ease both;
-  }
-  .card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--amber-light), var(--rose), var(--amber), var(--rose));
-    border-radius: 24px 24px 0 0;
+  .cover-sub {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.94rem; color: var(--ink-soft);
+    line-height: 1.6; text-align: center;
+    max-width: 420px; margin: 0 auto 0.4rem;
   }
 
-  .sec-label {
-    font-style: italic; font-size: 0.78rem; letter-spacing: 0.11em;
-    color: var(--text-soft); text-transform: uppercase;
-    margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.6rem;
+  /* ── DELIVERY NOTICE (lock pill replacement) ── */
+  .notice {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    background: var(--paper-2);
+    border: 1.5px solid var(--ink);
+    padding: 0.95rem 1.1rem;
+    margin-bottom: 1.4rem;
+    position: relative;
+    box-shadow: 3px 3px 0 var(--ink);
+    animation: fadeUp 0.8s 0.1s ease both;
   }
-  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .notice-stamp {
+    flex-shrink: 0;
+    font-family: 'Special Elite', monospace; font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    color: var(--red); border: 1.5px solid var(--red);
+    padding: 4px 6px; line-height: 1.2;
+    transform: rotate(-4deg);
+    text-align: center;
+    align-self: center;
+  }
+  .notice-stamp .big { font-size: 0.78rem; font-weight: bold; display: block; }
+  .notice p {
+    font-family: 'Lora', serif; font-size: 0.86rem;
+    color: var(--ink-soft); line-height: 1.55;
+  }
+  .notice p strong { color: var(--red-dark); font-weight: 600; }
 
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  @media (max-width: 500px) { .row2 { grid-template-columns: 1fr; } }
+  /* ── THE LETTER (form card on stationery) ── */
+  .letter {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 1.8rem 1.4rem;
+    position: relative;
+    box-shadow: 5px 5px 0 var(--ink);
+    animation: fadeUp 0.8s 0.2s ease both;
+    overflow: hidden;
+  }
+  .letter::before {
+    /* ruled lines like real stationery */
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 27px,
+      var(--paper-line) 27px, var(--paper-line) 28px
+    );
+    opacity: 0.6;
+  }
+  .letter::after {
+    /* red margin line on left, like school notebooks */
+    content: ''; position: absolute; top: 0; bottom: 0; left: 36px;
+    width: 1px; background: rgba(183, 58, 44, 0.25);
+    pointer-events: none;
+  }
+  .letter > * { position: relative; z-index: 1; }
 
-  .fgroup { margin-bottom: 1.4rem; }
+  .letter-opening {
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 1.65rem; line-height: 28px;
+    color: var(--ink); margin-bottom: 0.4rem;
+  }
+  .letter-opening em { color: var(--red-dark); font-style: italic; }
+
+  .sec {
+    font-family: 'Special Elite', monospace; font-size: 0.65rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--pencil); margin-top: 1.2rem; margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .sec::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .sec .hint {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.7rem; color: var(--pencil-soft);
+    text-transform: none; letter-spacing: normal;
+  }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  @media (max-width: 460px) { .row2 { grid-template-columns: 1fr; gap: 0; } }
+
+  .fgroup { margin-bottom: 0.7rem; }
   label {
-    display: block; font-size: 0.86rem; font-weight: 500;
-    color: var(--text-mid); margin-bottom: 0.45rem;
+    display: block;
+    font-family: 'Caveat', cursive; font-weight: 500;
+    font-size: 1rem; line-height: 1;
+    color: var(--ink-mid); margin-bottom: 0.25rem;
   }
-  label .hint { font-weight: 400; font-style: italic; color: var(--text-soft); font-size: 0.8rem; }
+  label .ask {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.72rem; color: var(--pencil); font-weight: 400;
+    margin-left: 0.3rem;
+  }
 
   input[type="text"], input[type="email"], textarea {
-    width: 100%; padding: 0.72rem 1rem; border: 1px solid var(--border);
-    border-radius: 10px; background: var(--cream); font-family: 'Lora', serif;
-    font-size: 0.94rem; color: var(--text-dark); outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border: none;
+    border-bottom: 1.5px solid var(--ink);
+    background: transparent;
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+    color: var(--ink);
+    outline: none;
+    line-height: 28px;
+    transition: border-color 0.2s;
+    border-radius: 0;
+    appearance: none;
   }
-  input:focus, textarea:focus {
-    border-color: var(--amber); box-shadow: 0 0 0 3px rgba(201,149,74,0.13);
+  input::placeholder, textarea::placeholder {
+    color: var(--pencil-soft); font-style: italic; opacity: 1;
   }
-  textarea { min-height: 155px; resize: vertical; line-height: 1.75; }
+  input:focus, textarea:focus { border-color: var(--red); }
+  textarea {
+    min-height: 196px;
+    resize: vertical;
+    line-height: 28px;
+    padding: 0.2rem 0.6rem;
+    border: none;
+    background: transparent;
+  }
 
-  /* ── Prompts ── */
-  .prompts { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px,1fr)); gap: 0.5rem; margin-bottom: 1.1rem; }
+  /* ── prompt chips (now look like little sticker prompts) ── */
+  .prompts {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
   .chip {
-    background: var(--parchment); border: 1px solid var(--border); border-radius: 9px;
-    padding: 0.5rem 0.75rem; font-size: 0.8rem; color: var(--text-mid);
-    cursor: pointer; font-style: italic; line-height: 1.4;
-    font-family: 'Lora', serif; transition: all 0.14s; user-select: none;
+    background: var(--paper-2);
+    border: 1.5px solid var(--ink);
+    padding: 0.35rem 0.7rem;
+    font-family: 'Caveat', cursive; font-weight: 500;
+    font-size: 1rem; color: var(--ink);
+    cursor: pointer; user-select: none;
+    transition: transform 0.15s, background 0.15s;
+    box-shadow: 2px 2px 0 var(--ink);
+    line-height: 1;
   }
-  .chip:hover { background: var(--amber-light); border-color: var(--amber); color: var(--amber-dark); transform: translateY(-1px); }
+  .chip:nth-child(3n+1) { transform: rotate(-1.2deg); }
+  .chip:nth-child(3n+2) { transform: rotate(0.8deg); }
+  .chip:nth-child(3n+3) { transform: rotate(-0.4deg); }
+  .chip:hover { background: var(--wax-light); transform: rotate(0deg) translateY(-2px); }
+  .chip:active { transform: translateY(0); box-shadow: 1px 1px 0 var(--ink); }
+  .chip.surprise {
+    background: var(--red); color: var(--paper);
+    border-color: var(--red-dark);
+  }
+  .chip.surprise:hover { background: var(--red-dark); color: var(--paper); }
 
-  /* ── Upload area ── */
+  /* ── VOICE RECORDER ── */
+  .voice-box {
+    background: var(--paper-2);
+    border: 1.5px dashed var(--ink);
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .voice-box.has-recording {
+    border-style: solid;
+    background: var(--paper);
+  }
+  .rec-btn {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--red);
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.1s, box-shadow 0.1s;
+    position: relative;
+  }
+  .rec-btn::after {
+    content: ''; width: 12px; height: 12px; border-radius: 50%;
+    background: var(--paper);
+  }
+  .rec-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .rec-btn.recording {
+    background: var(--ink);
+    animation: pulse 1.2s ease infinite;
+  }
+  .rec-btn.recording::after {
+    width: 14px; height: 14px; border-radius: 2px;
+    background: var(--red);
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 3px 3px 0 var(--ink), 0 0 0 0 rgba(183, 58, 44, 0.5); }
+    50%      { box-shadow: 3px 3px 0 var(--ink), 0 0 0 10px rgba(183, 58, 44, 0); }
+  }
+  .voice-meta {
+    flex: 1; min-width: 0;
+  }
+  .voice-title {
+    font-family: 'Caveat', cursive; font-weight: 600;
+    font-size: 1.15rem; color: var(--ink); line-height: 1.1;
+  }
+  .voice-sub {
+    font-family: 'Lora', serif; font-style: italic; font-size: 0.74rem;
+    color: var(--pencil); margin-top: 2px;
+  }
+  .voice-wave {
+    display: none;
+    gap: 2px; align-items: center; height: 22px;
+    margin-top: 4px;
+  }
+  .voice-wave.show { display: flex; }
+  .voice-wave .bar {
+    width: 3px; background: var(--red);
+    border-radius: 1px;
+    transition: height 0.05s linear;
+  }
+  .voice-time {
+    font-family: 'Special Elite', monospace; font-size: 0.78rem;
+    color: var(--ink); flex-shrink: 0;
+  }
+  .voice-actions {
+    display: none; gap: 6px;
+  }
+  .voice-actions.show { display: flex; }
+  .voice-mini-btn {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 4px 9px;
+    font-family: 'Lora', serif; font-size: 0.74rem; font-style: italic;
+    cursor: pointer; color: var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .voice-mini-btn:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--ink); }
+  .voice-mini-btn.danger { color: var(--red); }
+  audio.voice-player {
+    flex: 1; height: 32px; max-width: 100%;
+    filter: sepia(0.2);
+  }
+
+  /* ── PHOTO UPLOAD AREA ── */
   .upload-area {
-    border: 2px dashed var(--amber-light); border-radius: 14px;
-    background: rgba(232,201,138,0.07); padding: 2rem 1rem;
-    text-align: center; cursor: pointer; position: relative;
-    transition: border-color 0.2s, background 0.2s;
+    border: 1.5px dashed var(--ink);
+    background: var(--paper-2);
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 0.5rem;
+    transition: background 0.2s, border-color 0.2s;
   }
-  .upload-area.dragover { border-color: var(--amber); background: rgba(232,201,138,0.18); }
+  .upload-area.dragover {
+    background: var(--paper-edge);
+    border-color: var(--red);
+  }
   .upload-area input[type="file"] {
-    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    position: absolute; inset: 0; opacity: 0; cursor: pointer;
+    width: 100%; height: 100%;
   }
-  .upload-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
-  .upload-area .up-title { font-size: 0.92rem; color: var(--text-mid); font-weight: 500; margin-bottom: 0.25rem; }
-  .upload-area .up-sub { font-size: 0.78rem; color: var(--text-soft); font-style: italic; }
+  .upload-icon { font-size: 1.6rem; line-height: 1; margin-bottom: 0.4rem; }
+  .up-title {
+    font-family: 'Caveat', cursive; font-size: 1.15rem;
+    color: var(--ink); line-height: 1.1;
+  }
+  .up-sub {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.74rem; color: var(--pencil);
+    margin-top: 2px;
+  }
 
-  /* ── File previews ── */
-  .file-previews { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
-  .preview-item {
-    position: relative; border-radius: 8px; overflow: hidden;
-    border: 1px solid var(--border); background: var(--parchment);
-    width: 80px; height: 80px; flex-shrink: 0;
+  .file-previews {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 0.4rem;
   }
+  .preview-item {
+    position: relative;
+    width: 74px; height: 74px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper-2);
+    overflow: hidden;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .preview-item:nth-child(odd)  { transform: rotate(-1.5deg); }
+  .preview-item:nth-child(even) { transform: rotate(1.2deg); }
   .preview-item img, .preview-item video {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover; display: block;
   }
   .preview-item .file-label {
     position: absolute; inset: 0; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    font-size: 0.65rem; color: var(--text-soft); text-align: center;
-    padding: 4px; word-break: break-all; line-height: 1.3;
+    font-family: 'Lora', serif; font-size: 0.6rem;
+    color: var(--ink-mid); text-align: center; padding: 4px;
+    word-break: break-all; line-height: 1.2;
   }
-  .preview-item .file-label span { font-size: 1.4rem; margin-bottom: 2px; }
+  .preview-item .file-label .icon { font-size: 1.4rem; margin-bottom: 2px; }
   .preview-item .remove-btn {
-    position: absolute; top: 3px; right: 3px;
+    position: absolute; top: 2px; right: 2px;
     width: 18px; height: 18px; border-radius: 50%;
-    background: rgba(58,42,26,0.7); color: #fff;
-    font-size: 10px; border: none; cursor: pointer;
+    background: var(--ink); color: var(--paper);
+    border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    line-height: 1; font-weight: bold;
+    font-size: 11px; line-height: 1;
   }
-  .upload-size-note { font-size: 0.76rem; color: var(--text-soft); font-style: italic; margin-top: 0.5rem; }
+  .size-note {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.72rem; color: var(--pencil);
+    margin-top: 0.2rem;
+  }
 
-  /* ── Progress bar ── */
-  .progress-wrap { display: none; margin-top: 1rem; }
+  /* ── PROGRESS ── */
+  .progress-wrap { display: none; margin-top: 0.9rem; }
   .progress-bar-bg {
-    background: var(--parchment); border-radius: 100px;
-    height: 8px; overflow: hidden; border: 1px solid var(--border);
+    background: var(--paper-2);
+    border: 1px solid var(--ink);
+    height: 8px;
+    overflow: hidden;
   }
   .progress-bar-fill {
-    height: 100%; width: 0%; border-radius: 100px;
-    background: linear-gradient(90deg, var(--amber-light), var(--amber));
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--wax-light), var(--red));
     transition: width 0.3s ease;
   }
-  .progress-label { font-size: 0.8rem; color: var(--text-soft); font-style: italic; margin-top: 0.4rem; text-align: center; }
-
-  /* ── Submit ── */
-  .submit-btn {
-    width: 100%; padding: 1.05rem;
-    background: linear-gradient(135deg, var(--amber-dark), var(--amber));
-    color: #fff9f0; border: none; border-radius: 12px;
-    font-family: 'Playfair Display', serif; font-size: 1.1rem;
-    font-style: italic; cursor: pointer; letter-spacing: 0.03em;
-    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
-    margin-top: 1.2rem;
-    box-shadow: 0 4px 18px rgba(139,94,42,0.22);
+  .progress-label {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.78rem; color: var(--pencil);
+    text-align: center; margin-top: 0.3rem;
   }
-  .submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(139,94,42,0.28); }
-  .submit-btn:active:not(:disabled) { transform: translateY(0); }
-  .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  /* ── WAX SEAL SUBMIT (hold to seal) ── */
+  .seal-wrap {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .seal-instruction {
+    font-family: 'Caveat', cursive; font-weight: 500;
+    font-size: 1.15rem; color: var(--ink-mid); line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+  .seal-instruction .arrow { color: var(--red); }
+
+  .seal-btn {
+    position: relative;
+    width: 100%;
+    padding: 1.05rem 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: 2px solid var(--ink);
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 1.55rem; line-height: 1;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 var(--red);
+    transition: transform 0.1s, box-shadow 0.1s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .seal-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .seal-btn:not(:disabled):active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--red);
+  }
+  .seal-btn .label {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .seal-btn .fill {
+    position: absolute; inset: 0; width: 0%;
+    background: linear-gradient(90deg, var(--wax-dark), var(--wax), var(--wax-light));
+    transition: width 0.06s linear;
+    z-index: 1;
+  }
+  .seal-btn.holding .fill { /* width set inline by JS */ }
+  .seal-btn .helper-tip {
+    display: block;
+    font-family: 'Lora', serif; font-style: italic; font-weight: 400;
+    font-size: 0.7rem; color: rgba(244, 235, 213, 0.7);
+    margin-top: 4px;
+  }
 
   .error-msg {
-    display: none; background: #fff0f0; border: 1px solid #f5c0c0;
-    border-radius: 9px; padding: 0.8rem 1rem; font-size: 0.84rem;
-    color: #a03030; margin-top: 0.8rem; line-height: 1.5;
+    display: none;
+    background: rgba(183, 58, 44, 0.1);
+    border: 1.5px solid var(--red);
+    padding: 0.7rem 0.9rem;
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.85rem; color: var(--red-dark);
+    margin-top: 0.8rem;
+    line-height: 1.5;
   }
 
-  /* ── Success ── */
-  .success-view { display: none; text-align: center; padding: 3.5rem 1rem; }
-  .success-view .s-icon { font-size: 4rem; margin-bottom: 1.1rem; }
+  /* ── SUCCESS / SEALED STATE ── */
+  .success-view {
+    display: none;
+    padding: 2rem 0.6rem;
+    text-align: center;
+    animation: sealIn 0.8s ease both;
+  }
+  @keyframes sealIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .sealed-envelope {
+    position: relative;
+    width: 220px; height: 160px;
+    margin: 0.5rem auto 1.2rem;
+    background: var(--paper-2);
+    border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .sealed-envelope::before {
+    /* flap */
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 60%;
+    background: var(--paper-edge);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-bottom: 2px solid var(--ink);
+  }
+  .sealed-envelope .sv-wax {
+    position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%) rotate(-6deg);
+    width: 68px; height: 68px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #c4793a 0%, var(--wax) 50%, var(--wax-dark) 100%);
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.4), inset 3px 3px 6px rgba(255,220,180,0.4), 2px 2px 8px rgba(0,0,0,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255, 240, 220, 0.95);
+    font-family: 'Caveat', cursive; font-weight: 700; font-size: 2rem;
+  }
+  .sealed-envelope .sv-stamp {
+    position: absolute; top: 8px; right: 8px;
+    width: 44px; height: 52px; background: var(--paper);
+    border: 1.5px solid var(--ink); padding: 4px;
+    transform: rotate(6deg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Special Elite', monospace; font-size: 0.42rem;
+    line-height: 1; text-align: center; color: var(--ink-mid);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .sealed-envelope .sv-stamp .yr {
+    font-family: 'Caveat', cursive; font-weight: 700; font-size: 0.95rem; color: var(--red-dark);
+  }
+  .sealed-envelope .sv-warning {
+    position: absolute; bottom: 14px; left: 14px; right: 14px;
+    font-family: 'Special Elite', monospace; font-size: 0.55rem;
+    letter-spacing: 0.14em; text-align: center;
+    color: var(--red); border: 1.5px solid var(--red);
+    padding: 3px 6px; transform: rotate(-2deg);
+    background: rgba(244, 235, 213, 0.7);
+  }
   .success-view h2 {
-    font-family: 'Playfair Display', serif; font-size: 2rem;
-    font-style: italic; color: var(--amber-dark); margin-bottom: 0.7rem;
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 2.3rem; color: var(--ink); line-height: 1;
+    margin-bottom: 0.5rem;
   }
-  .success-view p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; font-style: italic; }
-  .success-view .envelope {
-    display: inline-block; margin-top: 1.5rem;
-    background: var(--parchment); border: 1px solid var(--amber-light);
-    border-radius: 12px; padding: 0.8rem 1.6rem;
-    font-size: 0.85rem; color: var(--text-mid); font-style: italic;
+  .success-view h2 em { color: var(--red-dark); font-style: italic; }
+  .success-view p {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.95rem; color: var(--ink-soft);
+    line-height: 1.7; max-width: 360px; margin: 0 auto;
+  }
+  .delivery-card {
+    margin-top: 1.4rem;
+    background: var(--paper-2);
+    border: 1.5px solid var(--ink);
+    padding: 0.9rem 1.2rem;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .delivery-card .top {
+    font-family: 'Special Elite', monospace; font-size: 0.6rem;
+    letter-spacing: 0.18em; color: var(--ink-mid);
+  }
+  .delivery-card .date {
+    font-family: 'Caveat', cursive; font-weight: 700;
+    font-size: 1.6rem; color: var(--red-dark); line-height: 1;
+  }
+  .delivery-card .meta {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.78rem; color: var(--pencil);
+  }
+  .more-actions {
+    display: flex; gap: 0.6rem; justify-content: center;
+    margin-top: 1.4rem; flex-wrap: wrap;
+  }
+  .ma-btn {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 0.5rem 1rem;
+    font-family: 'Caveat', cursive; font-weight: 500;
+    font-size: 1.05rem; color: var(--ink);
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--ink);
+    text-decoration: none;
+    display: inline-block;
+  }
+  .ma-btn:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--ink); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; margin-top: 2.5rem;
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.75rem; color: var(--pencil); line-height: 1.7;
+  }
+  .footer .ornament { margin-bottom: 0.4rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
   }
 
-  .footer { text-align: center; margin-top: 3rem; font-size: 0.76rem; color: var(--text-soft); font-style: italic; line-height: 1.8; }
-
-  @media (max-width: 480px) {
-    .page-wrap { padding: 2rem 1rem 5rem; }
-    .card { padding: 1.8rem 1.1rem; }
-    h1 { font-size: 2.3rem; }
+  @media (max-width: 420px) {
+    .wrap { padding: 1.5rem 0.8rem 4rem; }
+    .cover { padding: 2rem 1rem 1.6rem; }
+    .letter { padding: 1.4rem 1rem; }
+    .letter::after { left: 26px; }
+    .postmark { width: 64px; height: 64px; top: 10px; left: 10px; }
+    .stamp { width: 54px; height: 66px; top: 10px; right: 10px; }
   }
 </style>
 </head>
-<body>
-<div class="page-wrap">
+<body style="background-color: rgb(58, 42, 26)">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="badge">Class of 2025 &nbsp;·&nbsp; A Keepsake for the Future</div>
-    <h1>Shobhith's<br><em>Graduation Slam Book</em></h1>
+<div class="wrap">
+
+  <!-- ── COVER ── -->
+  <div class="cover">
+    <div class="postmark">
+      <span class="sm">CLASS OF</span>
+      <span class="lg">2025</span>
+      <span class="sm">·OPEN 2028·</span>
+    </div>
+    <div class="stamp">
+      <div class="top">DELIVER</div>
+      <div class="mid">Shobhith</div>
+      <div class="yr" id="stampYear">2028</div>
+      <div class="bot">PAID · ✦</div>
+    </div>
+
+    <div class="cover-greeting">a letter to be opened in 2028</div>
+    <h1 class="cover-h">Dear <em>Shobhith,</em></h1>
     <div class="ornament"><span>✦ ✦ ✦</span></div>
-    <p class="header-sub">Leave a message, a memory, a wish — sealed away and delivered to Shobhith two years from now.</p>
+    <p class="cover-sub">Write him something — a memory, a roast, a wish, a wild prediction. We'll deliver it exactly two years from today.</p>
   </div>
 
-  <!-- Lock pill -->
-  <div class="lock-pill">
-    <div class="icon">🔒</div>
-    <p>Your message will be <strong>automatically delivered to Shobhith on <span id="unlockDate"></span></strong>. He genuinely cannot read it before then. Write from the heart.</p>
+  <!-- ── DELIVERY NOTICE ── -->
+  <div class="notice">
+    <div class="notice-stamp">
+      <span class="big">DO NOT</span>
+      OPEN BEFORE<br>
+      <span id="noticeDate" class="big" style="font-size:0.72rem; letter-spacing:0.04em;">JUN 2028</span>
+    </div>
+    <p>Your message gets sealed today and <strong>auto-delivered to Shobhith on <span id="unlockDate"></span></strong>. He cannot read it before then. So write whatever — he'll see it when it lands.</p>
   </div>
 
-  <!-- Form card -->
-  <div class="card" id="mainCard">
+  <!-- ── LETTER (form) ── -->
+  <div class="letter" id="mainCard">
 
-    <div class="sec-label">Who are you</div>
+    <div class="letter-opening">From, <em id="nameEcho">a friend.</em></div>
+
+    <div class="sec">Who's writing this</div>
 
     <div class="row2">
       <div class="fgroup">
-        <label for="senderName">Your name</label>
-        <input type="text" id="senderName" placeholder="e.g. Priya Sharma" autocomplete="name" />
+        <label for="senderName">your name</label>
+        <input type="text" id="senderName" placeholder="Priya, but the one from hostel" autocomplete="name" />
       </div>
       <div class="fgroup">
-        <label for="senderEmail">Your email <span class="hint">(so he knows it's you)</span></label>
-        <input type="email" id="senderEmail" placeholder="you@example.com" autocomplete="email" />
+        <label for="senderEmail">your email <span class="ask">(so he knows it's you)</span></label>
+        <input type="email" id="senderEmail" placeholder="you@somewhere.com" autocomplete="email" />
       </div>
     </div>
 
-    <div class="sec-label" style="margin-top:1.4rem">Your message</div>
+    <div class="sec">The letter <span class="hint">— pick a prompt or just go off</span></div>
 
-    <div class="fgroup">
-      <label>Need a spark? Pick a prompt</label>
-      <div class="prompts">
-        <div class="chip" onclick="addPrompt('My favourite memory with Shobhith is...')">📸 A favourite memory</div>
-        <div class="chip" onclick="addPrompt('In 2 years, I predict Shobhith will...')">🔮 My prediction</div>
-        <div class="chip" onclick="addPrompt('The one thing I want Shobhith to remember is...')">💛 Remember this</div>
-        <div class="chip" onclick="addPrompt('My advice for the next chapter of your life...')">🌱 Advice for ahead</div>
-        <div class="chip" onclick="addPrompt('What I admire most about Shobhith is...')">⭐ What I admire</div>
-        <div class="chip" onclick="addPrompt('The moment I knew Shobhith was going places...')">✨ A proud moment</div>
-      </div>
+    <div class="prompts">
+      <div class="chip surprise" onclick="surpriseMe(this)">🎲 surprise me</div>
+      <div class="chip" onclick="addPrompt('My favourite memory with Shobhith is...')">📸 a favourite memory</div>
+      <div class="chip" onclick="addPrompt('In 2 years, I predict Shobhith will...')">🔮 my prediction</div>
+      <div class="chip" onclick="addPrompt('Honestly though, the most Shobhith thing he ever did was...')">🤡 a roast</div>
+      <div class="chip" onclick="addPrompt('The one thing I want Shobhith to remember is...')">💛 remember this</div>
+      <div class="chip" onclick="addPrompt('My advice for whatever comes next...')">🌱 advice ahead</div>
+      <div class="chip" onclick="addPrompt('What I admire most about Shobhith is...')">⭐ what I admire</div>
     </div>
 
-    <div class="fgroup">
-      <label for="msgText">Your message <span class="hint">(opened in 2027)</span></label>
-      <textarea id="msgText" placeholder="Write whatever your heart wants Shobhith to read two years from now — a memory, a wish, a joke, a prediction..."></textarea>
+    <div class="fgroup" style="margin-top:0.4rem;">
+      <textarea id="msgText" placeholder="say whatever your 2026 self wants his 2028 self to read..."></textarea>
     </div>
 
-    <div class="sec-label" style="margin-top:1.4rem">Photos & videos <span style="font-style:normal;font-size:0.72rem;color:var(--text-soft);margin-left:0.3rem">(optional)</span></div>
+    <!-- VOICE -->
+    <div class="sec">Voice memo <span class="hint">— optional, wildly more emotional</span></div>
 
-    <div class="fgroup">
-      <div class="upload-area" id="uploadArea"
-           ondragover="event.preventDefault();this.classList.add('dragover')"
-           ondragleave="this.classList.remove('dragover')"
-           ondrop="handleDrop(event)">
-        <input type="file" id="fileInput" multiple accept="image/*,video/*" onchange="handleFiles(this.files)" />
-        <div class="upload-icon">📎</div>
-        <p class="up-title">Click to attach or drag & drop</p>
-        <p class="up-sub">Photos and videos · up to 5 files · 10 MB each</p>
+    <div class="voice-box" id="voiceBox">
+      <button type="button" class="rec-btn" id="recBtn" onclick="toggleRecording()" aria-label="Record voice"></button>
+      <div class="voice-meta">
+        <div class="voice-title" id="voiceTitle">Tap to record</div>
+        <div class="voice-sub" id="voiceSub">up to 60 seconds · he'll hear it in 2028</div>
+        <div class="voice-wave" id="voiceWave"></div>
+        <audio class="voice-player" id="voicePlayer" controls style="display:none;"></audio>
+        <div class="voice-actions" id="voiceActions">
+          <button type="button" class="voice-mini-btn" onclick="rerecord()">re-record</button>
+          <button type="button" class="voice-mini-btn danger" onclick="deleteRecording()">delete</button>
+        </div>
       </div>
-      <div class="file-previews" id="filePreviews"></div>
-      <div class="upload-size-note" id="sizeNote"></div>
-
-      <div class="progress-wrap" id="progressWrap">
-        <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
-        <div class="progress-label" id="progressLabel">Uploading…</div>
-      </div>
+      <div class="voice-time" id="voiceTime">0:00</div>
     </div>
 
-    <button class="submit-btn" id="submitBtn" onclick="submitForm()">Seal my message ✦</button>
+    <!-- PHOTOS -->
+    <div class="sec">Photos &amp; videos <span class="hint">— optional, up to 5</span></div>
+
+    <div class="upload-area" id="uploadArea"
+         ondragover="event.preventDefault();this.classList.add('dragover')"
+         ondragleave="this.classList.remove('dragover')"
+         ondrop="handleDrop(event)">
+      <input type="file" id="fileInput" multiple accept="image/*,video/*" onchange="handleFiles(this.files)" />
+      <div class="upload-icon">📎</div>
+      <div class="up-title">tap to attach, or drag &amp; drop</div>
+      <div class="up-sub">photos &amp; videos · 10 MB each, up to 5 total</div>
+    </div>
+    <div class="file-previews" id="filePreviews"></div>
+    <div class="size-note" id="sizeNote"></div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">sealing…</div>
+    </div>
+
+    <!-- SEAL -->
+    <div class="seal-wrap">
+      <div class="seal-instruction" id="sealInstruction">press &amp; hold to seal it <span class="arrow">↓</span></div>
+      <button class="seal-btn" id="sealBtn">
+        <span class="fill" id="sealFill"></span>
+        <span class="label">
+          <span id="sealLabel">Hold to seal ✦</span>
+        </span>
+      </button>
+    </div>
+
     <div class="error-msg" id="errorMsg"></div>
 
-    <!-- Success -->
+    <!-- SUCCESS -->
     <div class="success-view" id="successView">
-      <div class="s-icon">🕊️</div>
-      <h2>Sealed with love.</h2>
-      <p>Your message is safely locked away.<br>Shobhith will receive it on <strong id="successDate"></strong> —<br>thank you for being part of his story.</p>
-      <div class="envelope">📬 Delivering in 2027 ✦</div>
+      <div class="sealed-envelope">
+        <div class="sv-stamp">
+          DELIVER<div class="yr" id="sealedYear">'27</div>JUN
+        </div>
+        <div class="sv-wax">S</div>
+        <div class="sv-warning">DO NOT OPEN · 2028</div>
+      </div>
+      <h2>It's <em>sealed.</em></h2>
+      <p>Your letter is locked away. Shobhith will read it — exactly as you wrote it — when it lands in 2028. Thanks for being part of his story.</p>
+      <div class="delivery-card">
+        <span class="top">DELIVERY DATE</span>
+        <span class="date" id="successDate"></span>
+        <span class="meta">we'll get it to him on the dot ✦</span>
+      </div>
+      <div class="more-actions">
+        <a class="ma-btn" href="#" onclick="resetForm();return false;">+ write another letter</a>
+        <a class="ma-btn" href="#" onclick="copyShareLink(this);return false;">share with a friend</a>
+      </div>
     </div>
 
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
+    <div class="ornament"><span>✦ ✦ ✦</span></div>
     Made with love for Shobhith's graduation · 2025<br>
-    Every message unlocks automatically in 2027 ✦
+    Every letter unlocks automatically in 2028
   </div>
 
 </div>
+
 <script>
-  // ── CONFIG — paste your deployed Apps Script URL here after setup ──
+  // ─────────────────────────────────────────────────────────────
+  //  CONFIG — same Apps Script URL as the original
+  // ─────────────────────────────────────────────────────────────
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw0KrZfTypIAa-53Kd05aZOHGYhRXQC5ZfMAZA8N925idJGVCKBA_L8iOhzSjCtFxOKJg/exec';
 
-  // Unlock date = 2 years from today
+  // Unlock date = locked to June 14, 2028 (Shobhith's graduation slam delivery)
   const today  = new Date();
-  const unlock = new Date(today);
-  unlock.setFullYear(unlock.getFullYear() + 2);
-  const fmt = d => d.toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
-  document.getElementById('unlockDate').textContent = fmt(unlock);
-  document.getElementById('successDate').textContent = fmt(unlock);
+  const unlock = new Date(2028, 5, 14); // months are 0-indexed → 5 = June
 
-  // ── Prompts ──
+  const fmt = d => d.toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+  const fmtShort = d => d.toLocaleDateString('en-IN', { month:'short', year:'numeric' }).toUpperCase();
+  document.getElementById('unlockDate').textContent  = fmt(unlock);
+  document.getElementById('successDate').textContent = fmt(unlock);
+  document.getElementById('noticeDate').textContent  = fmtShort(unlock);
+  document.getElementById('stampYear').textContent   = unlock.getFullYear();
+  document.getElementById('sealedYear').textContent  = "'" + String(unlock.getFullYear()).slice(2);
+
+  // Live echo the sender's name into the letter opening
+  const nameInput = document.getElementById('senderName');
+  const nameEcho  = document.getElementById('nameEcho');
+  nameInput.addEventListener('input', () => {
+    const v = nameInput.value.trim();
+    nameEcho.textContent = v ? v : 'a friend.';
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  PROMPTS
+  // ─────────────────────────────────────────────────────────────
   function addPrompt(text) {
     const ta = document.getElementById('msgText');
     ta.value = ta.value.trim() ? ta.value.trim() + '\n\n' + text : text;
     ta.focus();
     ta.scrollTop = ta.scrollHeight;
   }
+  const surprises = [
+    'Honestly? The first time I knew Shobhith was different was when...',
+    'If I had to describe Shobhith using three foods, they would be...',
+    'My theory about what Shobhith will be doing for a living in 2028 is...',
+    'The most chaotic thing we ever did together was...',
+    'Something Shobhith does that he probably thinks no one notices, but everyone does:',
+    "If Shobhith got famous, it'd 100% be for...",
+    "Predict Shobhith's Instagram bio in 2028:",
+    "Rate Shobhith's cooking out of 10 and defend your answer:",
+    "The song I'll always associate with Shobhith is ___, because..."
+  ];
+  function surpriseMe(el) {
+    const t = surprises[Math.floor(Math.random() * surprises.length)];
+    addPrompt(t);
+    el.style.transform = 'rotate(-3deg) scale(1.1)';
+    setTimeout(() => { el.style.transform = ''; }, 300);
+  }
 
-  // ── File handling ──
+  // ─────────────────────────────────────────────────────────────
+  //  FILE HANDLING (photos / videos)
+  // ─────────────────────────────────────────────────────────────
   let files = [];
   const MAX_FILES = 5;
   const MAX_BYTES = 10 * 1024 * 1024;
@@ -340,25 +881,19 @@
     document.getElementById('uploadArea').classList.remove('dragover');
     handleFiles(e.dataTransfer.files);
   }
-
   function handleFiles(incoming) {
     const toAdd = Array.from(incoming);
     const remaining = MAX_FILES - files.length;
     const oversized = toAdd.filter(f => f.size > MAX_BYTES);
     if (oversized.length) {
-      showError(`"${oversized[0].name}" is over 10 MB. Please choose a smaller file.`);
+      showError(`"${oversized[0].name}" is over 10 MB. Try a smaller one.`);
       return;
     }
-    if (remaining <= 0) { showError('Maximum 5 files allowed.'); return; }
+    if (remaining <= 0) { showError('Maximum 5 files. Delete one to add another.'); return; }
     files = [...files, ...toAdd.slice(0, remaining)];
     renderPreviews();
   }
-
-  function removeFile(i) {
-    files.splice(i, 1);
-    renderPreviews();
-  }
-
+  function removeFile(i) { files.splice(i, 1); renderPreviews(); }
   function renderPreviews() {
     const container = document.getElementById('filePreviews');
     container.innerHTML = '';
@@ -377,56 +912,286 @@
       } else {
         const lbl = document.createElement('div');
         lbl.className = 'file-label';
-        lbl.innerHTML = `<span>📄</span>${f.name}`;
+        lbl.innerHTML = `<span class="icon">📄</span>${f.name}`;
         div.appendChild(lbl);
       }
       const rm = document.createElement('button');
       rm.className = 'remove-btn';
+      rm.type = 'button';
       rm.textContent = '✕';
       rm.onclick = () => removeFile(i);
       div.appendChild(rm);
       container.appendChild(div);
     });
     const note = document.getElementById('sizeNote');
-    note.textContent = files.length ? `${files.length} file${files.length>1?'s':''} selected` : '';
-    document.getElementById('errorMsg').style.display = 'none';
+    note.textContent = files.length ? `${files.length} file${files.length>1?'s':''} attached` : '';
+    hideError();
   }
 
-  // ── Convert file to base64 ──
+  // ─────────────────────────────────────────────────────────────
+  //  VOICE RECORDING
+  // ─────────────────────────────────────────────────────────────
+  let mediaRecorder = null;
+  let mediaStream = null;
+  let audioChunks = [];
+  let recordingTimer = null;
+  let recordingStart = 0;
+  let voiceFile = null;            // the recorded audio file (added to `files` on submit if present)
+  let audioContext = null;
+  let analyser = null;
+  let waveAnimationId = null;
+  const MAX_VOICE_SEC = 60;
+
+  const recBtn       = document.getElementById('recBtn');
+  const voiceBox     = document.getElementById('voiceBox');
+  const voiceTitle   = document.getElementById('voiceTitle');
+  const voiceSub     = document.getElementById('voiceSub');
+  const voiceWave    = document.getElementById('voiceWave');
+  const voiceTime    = document.getElementById('voiceTime');
+  const voicePlayer  = document.getElementById('voicePlayer');
+  const voiceActions = document.getElementById('voiceActions');
+
+  // build wave bars once
+  for (let i = 0; i < 24; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.style.height = '4px';
+    voiceWave.appendChild(bar);
+  }
+  const waveBars = voiceWave.querySelectorAll('.bar');
+
+  function fmtClock(s) {
+    s = Math.max(0, Math.floor(s));
+    const m = Math.floor(s / 60);
+    const ss = String(s % 60).padStart(2, '0');
+    return `${m}:${ss}`;
+  }
+
+  async function toggleRecording() {
+    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+      await startRecording();
+    } else {
+      stopRecording();
+    }
+  }
+
+  async function startRecording() {
+    hideError();
+    try {
+      mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      showError('Microphone access denied. You can still write a letter without voice 🌿');
+      return;
+    }
+    audioChunks = [];
+    try {
+      mediaRecorder = new MediaRecorder(mediaStream);
+    } catch (e) {
+      // fallback for browsers that need a mime type
+      mediaRecorder = new MediaRecorder(mediaStream, { mimeType: 'audio/webm' });
+    }
+    mediaRecorder.ondataavailable = e => { if (e.data && e.data.size > 0) audioChunks.push(e.data); };
+    mediaRecorder.onstop = onRecordingStop;
+    mediaRecorder.start();
+
+    // visual state
+    recBtn.classList.add('recording');
+    voiceBox.classList.remove('has-recording');
+    voiceTitle.textContent = 'Recording…';
+    voiceSub.textContent = 'tap the square to stop · auto-stops at 60s';
+    voicePlayer.style.display = 'none';
+    voiceWave.classList.add('show');
+    voiceActions.classList.remove('show');
+
+    // start meter + timer
+    setupWave();
+    recordingStart = Date.now();
+    recordingTimer = setInterval(() => {
+      const elapsed = (Date.now() - recordingStart) / 1000;
+      voiceTime.textContent = fmtClock(elapsed);
+      if (elapsed >= MAX_VOICE_SEC) stopRecording();
+    }, 100);
+  }
+
+  function setupWave() {
+    try {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const source = audioContext.createMediaStreamSource(mediaStream);
+      analyser = audioContext.createAnalyser();
+      analyser.fftSize = 64;
+      source.connect(analyser);
+      const data = new Uint8Array(analyser.frequencyBinCount);
+      const tick = () => {
+        analyser.getByteFrequencyData(data);
+        waveBars.forEach((bar, i) => {
+          const v = data[i % data.length] / 255;
+          const h = Math.max(3, Math.round(v * 22));
+          bar.style.height = h + 'px';
+        });
+        waveAnimationId = requestAnimationFrame(tick);
+      };
+      tick();
+    } catch (e) {
+      // analyser failed (no big deal) — keep flat bars
+    }
+  }
+
+  function stopRecording() {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+    }
+    clearInterval(recordingTimer);
+    recordingTimer = null;
+    cancelAnimationFrame(waveAnimationId);
+    waveAnimationId = null;
+    if (audioContext) { audioContext.close().catch(()=>{}); audioContext = null; }
+    if (mediaStream) {
+      mediaStream.getTracks().forEach(t => t.stop());
+      mediaStream = null;
+    }
+    recBtn.classList.remove('recording');
+  }
+
+  function onRecordingStop() {
+    const elapsed = (Date.now() - recordingStart) / 1000;
+    if (audioChunks.length === 0) {
+      voiceTitle.textContent = 'Tap to record';
+      voiceSub.textContent = 'up to 60 seconds · he\'ll hear it in 2028';
+      voiceTime.textContent = '0:00';
+      voiceWave.classList.remove('show');
+      return;
+    }
+    const blob = new Blob(audioChunks, { type: audioChunks[0].type || 'audio/webm' });
+    const ext = (blob.type.split('/')[1] || 'webm').split(';')[0];
+    voiceFile = new File([blob], `voice-message-${Date.now()}.${ext}`, { type: blob.type });
+
+    const url = URL.createObjectURL(blob);
+    voicePlayer.src = url;
+    voicePlayer.style.display = 'block';
+
+    voiceBox.classList.add('has-recording');
+    voiceTitle.textContent = `Voice memo · ${fmtClock(elapsed)}`;
+    voiceSub.textContent = 'tap play to hear it · re-record or delete below';
+    voiceWave.classList.remove('show');
+    voiceActions.classList.add('show');
+  }
+
+  function rerecord() {
+    deleteRecording();
+    startRecording();
+  }
+  function deleteRecording() {
+    voiceFile = null;
+    audioChunks = [];
+    voicePlayer.src = '';
+    voicePlayer.style.display = 'none';
+    voiceBox.classList.remove('has-recording');
+    voiceTitle.textContent = 'Tap to record';
+    voiceSub.textContent = 'up to 60 seconds · he\'ll hear it in 2028';
+    voiceTime.textContent = '0:00';
+    voiceActions.classList.remove('show');
+    voiceWave.classList.remove('show');
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  FILE → BASE64
+  // ─────────────────────────────────────────────────────────────
   function toBase64(file) {
     return new Promise((res, rej) => {
       const r = new FileReader();
-      r.onload = () => res(r.result.split(',')[1]);
+      r.onload  = () => res(r.result.split(',')[1]);
       r.onerror = rej;
       r.readAsDataURL(file);
     });
   }
 
-  // ── Submit ──
+  // ─────────────────────────────────────────────────────────────
+  //  HOLD-TO-SEAL submission
+  // ─────────────────────────────────────────────────────────────
+  const HOLD_DURATION = 1400; // ms
+  const sealBtn   = document.getElementById('sealBtn');
+  const sealFill  = document.getElementById('sealFill');
+  const sealLabel = document.getElementById('sealLabel');
+  const sealInstr = document.getElementById('sealInstruction');
+
+  let holdRAF = null;
+  let holdStart = 0;
+  let holdComplete = false;
+
+  function startHold(e) {
+    if (sealBtn.disabled) return;
+    e && e.preventDefault && e.preventDefault();
+    if (holdComplete) return;
+    holdStart = performance.now();
+    sealBtn.classList.add('holding');
+    sealLabel.textContent = 'sealing…';
+    const tick = (t) => {
+      const elapsed = t - holdStart;
+      const pct = Math.min(100, (elapsed / HOLD_DURATION) * 100);
+      sealFill.style.width = pct + '%';
+      if (pct >= 100) {
+        holdComplete = true;
+        sealBtn.classList.remove('holding');
+        submitForm();
+      } else {
+        holdRAF = requestAnimationFrame(tick);
+      }
+    };
+    holdRAF = requestAnimationFrame(tick);
+  }
+  function cancelHold() {
+    if (holdComplete) return;
+    cancelAnimationFrame(holdRAF);
+    sealBtn.classList.remove('holding');
+    sealFill.style.width = '0%';
+    sealLabel.textContent = 'Hold to seal ✦';
+  }
+  sealBtn.addEventListener('pointerdown', startHold);
+  sealBtn.addEventListener('pointerup',   cancelHold);
+  sealBtn.addEventListener('pointerleave', cancelHold);
+  sealBtn.addEventListener('pointercancel', cancelHold);
+  // keyboard accessibility — Enter / Space submits instantly (no hold)
+  sealBtn.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && !sealBtn.disabled && !holdComplete) {
+      e.preventDefault();
+      holdComplete = true;
+      sealFill.style.width = '100%';
+      submitForm();
+    }
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  SUBMIT — same shape as original
+  // ─────────────────────────────────────────────────────────────
   async function submitForm() {
     hideError();
     const name    = document.getElementById('senderName').value.trim();
     const email   = document.getElementById('senderEmail').value.trim();
     const message = document.getElementById('msgText').value.trim();
 
-    if (!name)    { showError('Please enter your name.'); return; }
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return; }
-    if (!message) { showError('Please write a message before sealing.'); return; }
+    if (!name)    { showError('Tell him who you are 🙂 — name field is empty.'); resetSeal(); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('That email looks off. Double-check it?'); resetSeal(); return;
+    }
+    if (!message) { showError('Empty letter! Write him something first.'); resetSeal(); return; }
 
-    const btn = document.getElementById('submitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Sealing your message…';
+    sealBtn.disabled = true;
+    sealLabel.textContent = 'sealing your letter…';
+    sealInstr.style.display = 'none';
 
-    // Encode files
+    // Combine attachments — voice goes in as a regular file with audio/* mime
+    const allFiles = [...files];
+    if (voiceFile) allFiles.push(voiceFile);
+
     let encodedFiles = [];
-    if (files.length > 0) {
-      showProgress(0, 'Preparing your files…');
-      for (let i = 0; i < files.length; i++) {
-        showProgress(Math.round((i / files.length) * 70), `Uploading file ${i+1} of ${files.length}…`);
-        const b64 = await toBase64(files[i]);
-        encodedFiles.push({ name: files[i].name, type: files[i].type, data: b64 });
+    if (allFiles.length > 0) {
+      showProgress(0, 'sealing the envelope…');
+      for (let i = 0; i < allFiles.length; i++) {
+        showProgress(Math.round((i / allFiles.length) * 70), `attaching ${i+1} of ${allFiles.length}…`);
+        const b64 = await toBase64(allFiles[i]);
+        encodedFiles.push({ name: allFiles[i].name, type: allFiles[i].type, data: b64 });
       }
-      showProgress(85, 'Sealing your message…');
+      showProgress(85, 'addressing it to 2028…');
     }
 
     try {
@@ -441,14 +1206,21 @@
           unlockDate: unlock.toISOString()
         })
       });
-      showProgress(100, 'Done!');
-      setTimeout(showSuccess, 600);
-    } catch(e) {
+      showProgress(100, 'sealed!');
+      setTimeout(showSuccess, 500);
+    } catch (e) {
       hideProgress();
-      btn.disabled = false;
-      btn.textContent = 'Seal my message ✦';
-      showError('Something went wrong. Please try again.');
+      resetSeal();
+      showError('Something went wrong sending it. Try once more?');
     }
+  }
+
+  function resetSeal() {
+    sealBtn.disabled = false;
+    holdComplete = false;
+    sealFill.style.width = '0%';
+    sealLabel.textContent = 'Hold to seal ✦';
+    sealInstr.style.display = 'block';
   }
 
   function showProgress(pct, label) {
@@ -471,6 +1243,22 @@
     });
     document.getElementById('successView').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function resetForm() {
+    // simple way: reload page
+    location.reload();
+  }
+
+  function copyShareLink(el) {
+    const url = location.href.split('#')[0];
+    navigator.clipboard.writeText(url).then(() => {
+      const orig = el.textContent;
+      el.textContent = '✓ link copied';
+      setTimeout(() => { el.textContent = orig; }, 1800);
+    }).catch(() => {
+      el.textContent = 'copy this URL';
+    });
   }
 </script>
 </body>
