@@ -26,14 +26,15 @@
     --wax-dark:    #6f3f15;
     --blue:        #2a4d7a;
     --border:      rgba(28, 24, 19, 0.18);
+    --desk:        #1e1309;
   }
   html { -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'Lora', Georgia, serif;
-    background: var(--paper);
+    background: var(--desk);
     background-image:
-      radial-gradient(ellipse at 15% 10%, rgba(216, 165, 95, 0.12) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 90%, rgba(183, 58, 44, 0.08) 0%, transparent 55%);
+      radial-gradient(ellipse at 25% 10%, rgba(168, 96, 42, 0.22) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 90%, rgba(140, 50, 28, 0.16) 0%, transparent 50%);
     color: var(--ink);
     min-height: 100vh;
     line-height: 1.5;
@@ -41,9 +42,9 @@
 
   /* ── PAGE WRAP ── */
   .wrap {
-    max-width: 540px;
+    max-width: 640px;
     margin: 0 auto;
-    padding: 2.2rem 1.1rem 5rem;
+    padding: 2.4rem 1.1rem 5rem;
   }
 
   /* ── COVER / HEADER ── */
@@ -653,6 +654,63 @@
     to   { opacity: 1; transform: none; }
   }
 
+  /* ── DESKTOP ── */
+  @media (min-width: 680px) {
+    .wrap {
+      max-width: 720px;
+      padding: 4.5rem 2.5rem 7rem;
+    }
+    .cover {
+      padding: 3.4rem 3.2rem 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    h1.cover-h {
+      font-size: 4.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .cover-sub {
+      font-size: 1.08rem;
+      max-width: 500px;
+    }
+    .postmark {
+      width: 96px; height: 96px;
+      top: 22px; left: 22px;
+      font-size: 0.7rem;
+    }
+    .postmark .lg { font-size: 1rem; }
+    .postmark .sm { font-size: 0.6rem; }
+    .stamp {
+      width: 80px; height: 96px;
+      top: 22px; right: 22px;
+    }
+    .stamp .mid { font-size: 1.45rem; }
+    .stamp .yr { font-size: 1.9rem; }
+    .notice {
+      padding: 1.2rem 1.6rem;
+      gap: 1.3rem;
+      margin-bottom: 2rem;
+    }
+    .notice p { font-size: 0.95rem; }
+    .letter {
+      padding: 3rem 3.2rem;
+      box-shadow: 8px 8px 0 var(--ink);
+    }
+    .letter::after { left: 54px; }
+    .letter-opening { font-size: 2rem; }
+    .row2 { gap: 1.4rem; }
+    label { font-size: 1.05rem; }
+    input[type="text"], input[type="email"] { font-size: 1.35rem; }
+    textarea { min-height: 220px; font-size: 1.25rem; }
+    .chip { font-size: 1.05rem; padding: 0.4rem 0.85rem; }
+    .seal-btn { font-size: 1.7rem; padding: 1.25rem 1rem; }
+    .voice-title { font-size: 1.3rem; }
+    .sealed-envelope { width: 260px; height: 190px; }
+    .success-view h2 { font-size: 2.8rem; }
+    .footer { margin-top: 4rem; font-size: 0.82rem; }
+  }
+
+  /* ── SMALL MOBILE ── */
   @media (max-width: 420px) {
     .wrap { padding: 1.5rem 0.8rem 4rem; }
     .cover { padding: 2rem 1rem 1.6rem; }
@@ -663,7 +721,7 @@
   }
 </style>
 </head>
-<body style="background-color: rgb(58, 42, 26)">
+<body>
 
 <div class="wrap">
 
