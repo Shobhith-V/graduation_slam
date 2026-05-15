@@ -675,6 +675,44 @@
     line-height: 1;
   }
 
+  /* ── AUTOGRAPH PAD ── */
+  .sig-wrap {
+    position: relative;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .sig-canvas {
+    display: block; width: 100%; height: 130px;
+    cursor: crosshair; touch-action: none;
+  }
+  .sig-placeholder {
+    position: absolute; inset: 0 0 34px 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .sig-placeholder span {
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.88rem; color: var(--pencil-soft);
+  }
+  .sig-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 10px 5px;
+    border-top: 1px solid var(--border);
+  }
+  .sig-line-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.58rem; color: var(--pencil-soft); letter-spacing: 0.1em;
+  }
+  .sig-clear {
+    background: none; border: none;
+    font-family: 'Lora', serif; font-style: italic;
+    font-size: 0.72rem; color: var(--pencil);
+    cursor: pointer; padding: 0;
+  }
+  .sig-clear:hover { color: var(--red); }
+
   /* ── FACE PHOTO POLAROID ── */
   .polaroid-wrap {
     display: flex; flex-direction: column; align-items: center;
@@ -922,6 +960,18 @@
     </div>
     <div class="file-previews" id="filePreviews"></div>
     <div class="size-note" id="sizeNote"></div>
+
+    <!-- AUTOGRAPH -->
+    <div class="sec">Your autograph <span class="hint">— sign your name, draw something, go wild</span></div>
+
+    <div class="sig-wrap">
+      <canvas id="sigCanvas" class="sig-canvas"></canvas>
+      <div class="sig-placeholder" id="sigPlaceholder"><span>sign here</span></div>
+      <div class="sig-footer">
+        <span class="sig-line-label">× _______________</span>
+        <button type="button" class="sig-clear" onclick="clearSignature()">↺ redo</button>
+      </div>
+    </div>
 
     <!-- PROGRESS -->
     <div class="progress-wrap" id="progressWrap">
@@ -1309,6 +1359,70 @@
   }
 
   // ─────────────────────────────────────────────────────────────
+  //  SIGNATURE PAD
+  // ─────────────────────────────────────────────────────────────
+  const sigCanvas = document.getElementById('sigCanvas');
+  const sigCtx    = sigCanvas.getContext('2d');
+  let signing = false, sigHasContent = false, lastSigPt = null;
+
+  function initSig() {
+    const rect = sigCanvas.getBoundingClientRect();
+    const dpr  = window.devicePixelRatio || 1;
+    sigCanvas.width  = Math.round(rect.width  * dpr);
+    sigCanvas.height = Math.round(rect.height * dpr);
+    sigCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    sigCtx.strokeStyle = '#1c1813';
+    sigCtx.lineWidth   = 2;
+    sigCtx.lineCap     = 'round';
+    sigCtx.lineJoin    = 'round';
+  }
+
+  function sigPt(e) {
+    const r = sigCanvas.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+
+  sigCanvas.addEventListener('pointerdown', e => {
+    e.preventDefault();
+    signing = true; sigHasContent = true;
+    document.getElementById('sigPlaceholder').style.display = 'none';
+    lastSigPt = sigPt(e);
+    sigCtx.beginPath();
+    sigCtx.moveTo(lastSigPt.x, lastSigPt.y);
+    sigCanvas.setPointerCapture(e.pointerId);
+  });
+  sigCanvas.addEventListener('pointermove', e => {
+    if (!signing) return;
+    const p = sigPt(e);
+    const mid = { x: (lastSigPt.x + p.x) / 2, y: (lastSigPt.y + p.y) / 2 };
+    sigCtx.quadraticCurveTo(lastSigPt.x, lastSigPt.y, mid.x, mid.y);
+    sigCtx.stroke();
+    sigCtx.beginPath();
+    sigCtx.moveTo(mid.x, mid.y);
+    lastSigPt = p;
+  });
+  sigCanvas.addEventListener('pointerup',     () => { signing = false; });
+  sigCanvas.addEventListener('pointercancel', () => { signing = false; });
+
+  function clearSignature() {
+    const r = sigCanvas.getBoundingClientRect();
+    sigCtx.clearRect(0, 0, r.width, r.height);
+    sigHasContent = false;
+    document.getElementById('sigPlaceholder').style.display = 'flex';
+  }
+
+  function getSignatureFile() {
+    return new Promise(resolve => {
+      if (!sigHasContent) { resolve(null); return; }
+      sigCanvas.toBlob(b => resolve(
+        b ? new File([b], `autograph-${Date.now()}.png`, { type: 'image/png' }) : null
+      ), 'image/png');
+    });
+  }
+
+  initSig();
+
+  // ─────────────────────────────────────────────────────────────
   //  FILE → BASE64
   // ─────────────────────────────────────────────────────────────
   function toBase64(file) {
@@ -1397,9 +1511,11 @@
     sealLabel.textContent = 'sealing your letter…';
     sealInstr.style.display = 'none';
 
-    // Combine attachments — face photo first, then general, then voice
+    // Combine attachments — face photo, general, autograph, then voice
+    const sigFile  = await getSignatureFile();
     const allFiles = [...files];
     if (facePhoto) allFiles.push(facePhoto);
+    if (sigFile)   allFiles.push(sigFile);
     if (voiceFile) allFiles.push(voiceFile);
 
     let encodedFiles = [];
